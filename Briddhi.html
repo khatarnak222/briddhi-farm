@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briddhi Farm</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg,#e8f5e9,#f1f8e9);
+    color: #1b1b1b;
+}
+
+/* ===== Header ===== */
+header {
+    background: rgba(27,94,32,0.95);
+    backdrop-filter: blur(6px);
+    color: white;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+}
+
+/* ===== Nav ===== */
+nav {
+    background: #0d3b12;
+    padding: 14px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 16px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: .3px;
+}
+
+nav a:hover { opacity: .8; }
+
+/* ===== Hero ===== */
+.hero {
+    padding: 90px 20px;
+    text-align: center;
+    background:
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-inner {
+    max-width: 800px;
+    margin: auto;
+    animation: fadeUp 0.9s ease;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== Sections ===== */
+.section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+/* ===== Cards ===== */
+.card {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    margin: 18px 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+}
+
+/* ===== Feature Strip ===== */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: -40px auto 20px;
+    padding: 0 20px;
+}
+
+.feature-box {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    font-weight: 600;
+}
+
+/* ===== About Grid ===== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+/* ===== Buttons ===== */
+button {
+    background: linear-gradient(135deg,#43a047,#2e7d32);
+    color: white;
+    border: none;
+    padding: 13px 26px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 2px solid white;
+}
+
+button:hover { transform: scale(1.05); }
+
+/* ===== Form ===== */
+input, select {
+    width: 100%;
+    padding: 11px;
+    margin: 8px 0 16px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Gallery ===== */
+.gallery {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.gallery img {
+    height: 230px;
+    border-radius: 12px;
+    transition: transform .25s ease;
+}
+
+.gallery img:hover { transform: scale(1.06); }
+
+/* ===== Pricing ===== */
+.price-box {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b5e20;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ===== WhatsApp Float ===== */
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #25D366;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    z-index: 999;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .hero h2 { font-size: 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎣 Briddhi Farm</h1>
+    <p>Premium Angling Destination near Guwahati</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#angling">Angling</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#booking">Book Slot</a>
+</nav>
+
+<section id="home" class="hero">
+    <div class="hero-inner">
+        <h2>Experience Premium Angling</h2>
+        <p>Peaceful waters • Quality fish • Natural surroundings</p>
+
+        <div class="hero-buttons">
+            <button onclick="document.getElementById('booking').scrollIntoView()">
+                Book Your Slot
+            </button>
+            <button class="secondary-btn" onclick="document.getElementById('gallery').scrollIntoView()">
+                View Gallery
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-box">🎣 Managed Angling Ponds</div>
+    <div class="feature-box">🌿 Natural Farm Environment</div>
+    <div class="feature-box">🐟 Quality Fish Stock</div>
+    <div class="feature-box">📍 Near Guwahati</div>
+</section>
+
+<section id="about" class="section">
+    <h2>🌿 About Briddhi Farm</h2>
+    <div class="card">
+        <div class="about-grid">
+            <div>
+                <p><b>Briddhi Farm</b> is a thoughtfully developed aquaculture and agri-based destination near Guwahati focused on delivering a premium recreational angling experience.</p>
+                <p>The farm blends scientific fishery management with a peaceful natural landscape, creating the perfect environment for both serious anglers and weekend visitors.</p>
+                <p>Our long-term vision is to build one of Assam’s most trusted and well-managed private angling destinations.</p>
+            </div>
+            <img class="about-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef">
+        </div>
+    </div>
+</section>
+
+<section id="angling" class="section">
+    <h2>🎣 Angling Experience</h2>
+    <div class="card">
+        <h3>Catch & Release Fishing</h3>
+        <p>Scientifically managed ponds designed for both beginners and serious anglers.</p>
+    </div>
+    <div class="card">
+        <h3>Healthy Fighting Fish</h3>
+        <p>Quality carp and selected species maintained for strong angling action.</p>
+    </div>
+</section>
+
+<section id="pricing" class="section">
+    <h2>💰 Pricing</h2>
+    <div class="card">
+        <p>🎣 Half Day Angling: <span class="price-box">₹499</span></p>
+        <p>🎣 Full Day Angling: <span class="price-box">₹899</span></p>
+        <p>👥 Group Booking (5+): Custom pricing available</p>
+        <p style="font-size:13px;color:#666;">*Catch & release policy applies</p>
+    </div>
+</section>
+
+<section id="gallery" class="section">
+    <h2>📸 Farm Gallery</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef">
+        <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf">
+        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399">
+    </div>
+</section>
+
+<section id="booking" class="section">
+    <h2>📅 Book Angling Slot</h2>
+    <div class="card">
+        <form onsubmit="alert('Booking request submitted! We will contact you soon.'); return false;">
+            <label>Your Name</label>
+            <input type="text" required>
+
+            <label>Phone Number</label>
+            <input type="tel" required>
+
+            <label>Select Package</label>
+            <select required>
+                <option value="">Choose...</option>
+                <option>Half Day</option>
+                <option>Full Day</option>
+            </select>
+
+            <label>Select Date</label>
+            <input type="date" required>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Briddhi Farm. All rights reserved.</p>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/919999999999" target="_blank">
+💬 WhatsApp
+</a>
+
+</body>
+</html>
